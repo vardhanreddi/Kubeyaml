@@ -1,0 +1,14 @@
+ napiVersion: v1
+kind: Pod
+metadata:
+  name: test-pod1
+spec: 
+  containers:
+  - name: emptydircontainer
+    image: nginx
+    volumeMounts:
+    - name: emptydir
+      mountPath: /cache
+  volumes:
+  - name: emptydir
+    emptyDir: {}

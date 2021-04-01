@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: rc-nginx
+spec:
+  replicas: 3
+  selector:
+    app: web-app
+  template:
+    metadata:
+      name: nginx-rc
+      namespace: default
+      labels:
+        app: web-app
+    spec:
+      containers:
+      - name: nginxwebapp
+        image: nginx
+        ports:
+        - containerPort: 80
+

@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-clouddisk
+spec:
+  containers:
+  - name: clouddisk
+    image: nginx
+    volumeMounts:
+    - name: cloud disk
+      mountPath: /cache
+  volumes:
+  - name: clouddisk
+    gcpPersistentDisk:
+      pdName: my-data-disk 
+      fsType: ext4
